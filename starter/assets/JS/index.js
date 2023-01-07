@@ -137,7 +137,17 @@ let maxElement = Math.max.apply(Math, profitLoss)
 console.log(maxElement)
 
 
-let indexDate = 
+let lowDateIndex = (profitLoss.indexOf(minElement))+1; //consol log is 44
+
+let lowDate = finances[44][0]
+
+console.log(lowDate) 
+
+let highDateIndex = (profitLoss.indexOf(maxElement))+1; //consol log is 44
+console.log(highDateIndex)
+let highDate = finances[25][0]
+
+console.log(highDate) 
 
 
 
@@ -156,8 +166,8 @@ console.log (
 Total Months: ${months}
 Total: $${sum}
 Average  Change: $${average}
-Greatest Increase in Profits: () ($${maxElement})
-Greatest Decrease in Profits: Sep-2013 ($${minElement})`
+Greatest Increase in Profits: ${highDate} $${maxElement}
+Greatest Decrease in Profits: ${lowDate} $${minElement}`
 
 )
 
