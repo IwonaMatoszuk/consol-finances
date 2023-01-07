@@ -87,4 +87,77 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
-console.log(finances.length)
+
+//The total number of months included in the datasheet
+
+let months = finances.length;
+
+
+//The net total amount
+
+let sum = 0
+let changeInProfit = 0
+let previousMonthProfit
+let profitLoss =[]
+let totalChange = 0
+let average
+
+
+for (var i=0; i<finances.length; i++) {
+    sum = sum + finances[i][1];
+    
+}
+
+for (var i=1; i < finances.length; i++) {
+    
+    currentMonthProfit = finances[i][1]
+    previousMonthProfit = finances[i-1][1];
+    changeInProfit = currentMonthProfit - previousMonthProfit;
+    profitLoss.push(changeInProfit);
+    console.log(profitLoss)
+   
+}
+
+for (var i=0; i<profitLoss.length; i++) {
+    totalChange += profitLoss[i]
+    console.log(totalChange)
+}
+
+average = Math.round(totalChange/profitLoss.length);
+console.log(average)
+
+for (var i=0; i<profitLoss; i++) {
+
+}
+
+let minElement = Math.min.apply(Math, profitLoss);
+console.log(minElement)
+
+let maxElement = Math.max.apply(Math, profitLoss)
+console.log(maxElement)
+
+
+let indexDate = 
+
+
+
+
+
+//console.log(index)
+//console.log(profitLoss)
+console.table(finances)
+
+
+
+console.log (
+
+`Financial Analysis
+----------------------------
+Total Months: ${months}
+Total: $${sum}
+Average  Change: $${average}
+Greatest Increase in Profits: () ($${maxElement})
+Greatest Decrease in Profits: Sep-2013 ($${minElement})`
+
+)
+
