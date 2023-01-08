@@ -88,83 +88,90 @@ var finances = [
 ];
 
 
-//The total number of months included in the datasheet
+//1. Calculation of the total number of months included in the datasheet
 
-let months = finances.length;
+let totalMonths = finances.length; // gives 86
 
 
-//The net total amount
+//2. Setting up variables required for calculations
 
-let sum = 0
+let totalNet = 0
 let changeInProfit = 0
 let previousMonthProfit
-let profitLoss =[]
+let results = []
 let totalChange = 0
 let average
 
+//3. The net total amount calculation
 
-for (var i=0; i<finances.length; i++) {
-    sum = sum + finances[i][1];
+for (var i = 0; i < finances.length; i++) {
+    totalNet += finances[i][1];
     
 }
 
-for (var i=1; i < finances.length; i++) {
+// 4. Calculations for change in profit/loss
+
+for (var i = 1; i < finances.length; i++) {
     
-    currentMonthProfit = finances[i][1]
+    currentMonthProfit = finances[i][1];
     previousMonthProfit = finances[i-1][1];
     changeInProfit = currentMonthProfit - previousMonthProfit;
-    profitLoss.push(changeInProfit);
-    console.log(profitLoss)
+    //4a. Pushing result values into new array 
+    results.push(changeInProfit);
+    
    
 }
+    //console.log(results)
 
-for (var i=0; i<profitLoss.length; i++) {
-    totalChange += profitLoss[i]
-    console.log(totalChange)
+
+// 5. Finding total change in profit/loss
+
+for (var i = 0; i < results.length; i++) {
+    totalChange += results[i]
+    
 }
+//console.log(totalChange); //-196785
 
-average = Math.round(totalChange/profitLoss.length);
-console.log(average)
+// 6. Calculation for average change in profit/loss
 
-for (var i=0; i<profitLoss; i++) {
-
-}
-
-let minElement = Math.min.apply(Math, profitLoss);
-console.log(minElement)
-
-let maxElement = Math.max.apply(Math, profitLoss)
-console.log(maxElement)
+average = Math.round(totalChange/results.length); //2315
+//console.log(average)
 
 
-let lowDateIndex = (profitLoss.indexOf(minElement))+1; //consol log is 44
+//7. Finding min and max value within results array
 
-let lowDate = finances[44][0]
+let minElement = Math.min.apply(Math, results);
+//console.log(minElement) //-2196167
 
-console.log(lowDate) 
+let maxElement = Math.max.apply(Math, results)
+//console.log(maxElement) //1926159
 
-let highDateIndex = (profitLoss.indexOf(maxElement))+1; //consol log is 44
-console.log(highDateIndex)
+
+//8. Finding indexes of min and max values in results values array to be able 
+// to find corresponding dates 
+let lowDateIndex = (results.indexOf(minElement))+1; //console log is 44
+
+let lowDate = finances[44][0] //
+
+//console.log(lowDate) 
+
+let highDateIndex = (results.indexOf(maxElement))+1; //console log is 25
+
 let highDate = finances[25][0]
 
-console.log(highDate) 
+//console.log(highDate) 
 
 
 
-
-
-//console.log(index)
-//console.log(profitLoss)
-console.table(finances)
 
 
 
 console.log (
 
 `Financial Analysis
-----------------------------
-Total Months: ${months}
-Total: $${sum}
+------------------------------------------------
+Total Months: ${totalMonths}
+Total: $${totalNet}
 Average  Change: $${average}
 Greatest Increase in Profits: ${highDate} $${maxElement}
 Greatest Decrease in Profits: ${lowDate} $${minElement}`
