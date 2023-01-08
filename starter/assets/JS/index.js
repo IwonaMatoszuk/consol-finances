@@ -95,12 +95,11 @@ let totalMonths = finances.length; // gives 86
 
 //2. Setting up variables required for calculations
 
-let totalNet = 0
-let changeInProfit = 0
-let previousMonthProfit
-let results = []
-let totalChange = 0
-let average
+let totalNet = 0;
+let changeInProfit = 0;
+let results = [];
+let totalChange = 0;
+let average;
 
 //3. The net total amount calculation
 
@@ -127,7 +126,7 @@ for (var i = 1; i < finances.length; i++) {
 // 5. Finding total change in profit/loss
 
 for (var i = 0; i < results.length; i++) {
-    totalChange += results[i]
+    totalChange += results[i];
     
 }
 //console.log(totalChange); //-196785
@@ -143,7 +142,7 @@ average = Math.round(totalChange/results.length); //2315
 let minElement = Math.min.apply(Math, results);
 //console.log(minElement) //-2196167
 
-let maxElement = Math.max.apply(Math, results)
+let maxElement = Math.max.apply(Math, results);
 //console.log(maxElement) //1926159
 
 
@@ -151,13 +150,13 @@ let maxElement = Math.max.apply(Math, results)
 // to find corresponding dates 
 let lowDateIndex = (results.indexOf(minElement))+1; //console log is 44
 
-let lowDate = finances[44][0] //
+let lowDate = finances[44][0]; //
 
 //console.log(lowDate) 
 
 let highDateIndex = (results.indexOf(maxElement))+1; //console log is 25
 
-let highDate = finances[25][0]
+let highDate = finances[25][0];
 
 //console.log(highDate) 
 
