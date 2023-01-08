@@ -168,13 +168,13 @@ let highDate = finances[25][0]
 
 console.log (
 
-`Financial Analysis
-------------------------------------------------
-Total Months: ${totalMonths}
-Total: $${totalNet}
-Average  Change: $${average}
-Greatest Increase in Profits: ${highDate} $${maxElement}
-Greatest Decrease in Profits: ${lowDate} $${minElement}`
+"Financial Analysis" + "\n" +
+"------------------------------------------------" + "\n" +
+"Total Months: " + totalMonths + "\n" + 
+"Total: $" + totalNet + "\n" +
+"Average  Change: $" + average + "\n" +
+"Greatest Increase in Profits: " + highDate + " $" + maxElement + "\n" +
+"Greatest Decrease in Profits: " + lowDate + " $" + minElement
 
 )
 
